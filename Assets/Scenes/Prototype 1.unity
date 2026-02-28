@@ -802,6 +802,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2887253791767814822, guid: a771059c58741b1459d053f559b4c797, type: 3}
+      propertyPath: m_Size.y
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2887253791767814822, guid: a771059c58741b1459d053f559b4c797, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7f4e0b7d2dc2610499036935caa7f68b, type: 3}
+    - target: {fileID: 2887253791767814822, guid: a771059c58741b1459d053f559b4c797, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6654001184438953644, guid: a771059c58741b1459d053f559b4c797, type: 3}
       propertyPath: doorAnimator
       value: 
@@ -811,8 +823,16 @@ PrefabInstance:
       value: Key
       objectReference: {fileID: 0}
     - target: {fileID: 8989023794204171559, guid: a771059c58741b1459d053f559b4c797, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989023794204171559, guid: a771059c58741b1459d053f559b4c797, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989023794204171559, guid: a771059c58741b1459d053f559b4c797, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.77
+      value: -1.21
       objectReference: {fileID: 0}
     - target: {fileID: 8989023794204171559, guid: a771059c58741b1459d053f559b4c797, type: 3}
       propertyPath: m_LocalPosition.y
