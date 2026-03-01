@@ -276,8 +276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02114956043c23942933c494a4be30ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
-  speed: 2
-  jumpForce: 6.5
+  speed: 4
+  jumpForce: 8
 --- !u!61 &1883331581204100103
 BoxCollider2D:
   m_ObjectHideFlags: 0
