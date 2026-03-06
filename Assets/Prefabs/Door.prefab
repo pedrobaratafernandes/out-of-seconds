@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8319389903105140875}
   - component: {fileID: 4841915029959381824}
   - component: {fileID: 8258893297569244722}
-  - component: {fileID: 8465793099083150537}
   - component: {fileID: 9000819639449669385}
+  - component: {fileID: 8465793099083150537}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -116,20 +116,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8465793099083150537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2275939597886784020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b64b9d231ad926249b298c84bb4a7414, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnterDoor
-  sceneName: Prototype 2
-  door: {fileID: 0}
 --- !u!61 &9000819639449669385
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -168,7 +154,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 3, y: 3}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -176,3 +162,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8465793099083150537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2275939597886784020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b64b9d231ad926249b298c84bb4a7414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnterDoor
+  sceneName: Prototype 2
+  door: {fileID: 0}
