@@ -3,25 +3,39 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     public Animator doorAnimator;
-    public bool isOpen { get; set; } = false;
-    void Start()
-    {
-        // verifica se a porta do nivel 1 foi aberta pelo singleton
-        if (GameManager.Instance != null && GameManager.Instance.Level1DoorIsOpen)
-        {
-            isOpen = true;
-            doorAnimator.SetBool("Open", true);
-            
-        }
-    }
-    // quando o jogador toca na porta do nivel 1. colocar o estado como aberta guardar no singleton
+    public int levelKey = 1; // nível da porta
+    public bool isOpen { get; private set; } = false;
+
+
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && levelKey == 2)
         {
-            doorAnimator.SetBool("Open", true);
-            isOpen = true;
-            GameManager.Instance.Level1DoorIsOpen = true;
+            SetDoorOpen();
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.Level2DoorIsOpen = true;
+
+            }
         }
+    }
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        
+        if (collision.CompareTag("Player") && GameManager.Instance.coffee && levelKey == 1)
+        {
+            SetDoorOpen();
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.Level1DoorIsOpen = true;
+
+            }
+        }
+    }
+    private void SetDoorOpen()
+    {
+        isOpen = true;
+        if (doorAnimator != null)
+            doorAnimator.SetBool("Open", true);
     }
 }
