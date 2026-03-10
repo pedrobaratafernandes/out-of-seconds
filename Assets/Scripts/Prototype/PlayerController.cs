@@ -2,17 +2,23 @@ using UnityEngine;
 using UnityEngine.InputSystem; // new input system
 using UnityEngine.SceneManagement; // transicao entre scenes
 
+//  https://www.youtube.com/watch?v=BXmUemP3a6o
+
 public class PlayerMove : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public float speed = 5f;       // velocidade horizontal
-    public float jumpForce = 8f;   // força vertical para quando o jogador salta
+    [SerializeField] float speed = 5f;       // velocidade horizontal
+    [SerializeField] float jumpForce = 8f;   // força vertical para quando o jogador salta
 
     private Rigidbody2D rb;        // referencia para componente rigidbody 2d
-    private Vector2 moveInput;     // guardar vector2 do moveinput
+    private float horizontal;    // guardar vector2 do moveinput
+
+    [Header("Grouding")]
+    [SerializeField] LayerMask groundLayer;
+    [SerializeField] Transform groundCheck;
 
     [Header("Input Actions")]
-    public InputAction menuAction; // tecla ESC
+    [SerializeField] InputAction menuAction; // tecla ESC
 
     void Awake()
     {
@@ -35,18 +41,23 @@ public class PlayerMove : MonoBehaviour
     public void OnMove(InputAction.CallbackContext ctx)
     {
         // WASD  ou gamepad)
-        moveInput = ctx.ReadValue<Vector2>();
+        horizontal = ctx.ReadValue<Vector2>().x;
     }
 
     // componente PlayerInput saltar
     public void OnJump(InputAction.CallbackContext ctx)
     {
         // verifica se botao foi premido
-        if (ctx.performed)
+        if (ctx.performed && IsGrounded())
         {
             // aplicar movimento de salto
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
     }
     void Start()
     {
@@ -71,7 +82,7 @@ public class PlayerMove : MonoBehaviour
     {
         // mover na horizontal
         // FixedUpdate para physics-based movement
-        rb.linearVelocity = new Vector2(moveInput.x * speed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
     }
 
     // quando o jogador retorna a scene main menu
