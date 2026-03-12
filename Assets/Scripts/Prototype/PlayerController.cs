@@ -20,6 +20,13 @@ public class PlayerMove : MonoBehaviour
     [Header("Input Actions")]
     [SerializeField] InputAction menuAction; // tecla ESC
 
+
+    [Header("Knockback")]
+    [SerializeField] float knockbackForce = 10f;
+    [SerializeField] float knockbackTime = 0.2f;
+    bool isKnockback;
+
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -80,6 +87,8 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        if (isKnockback) return;
         // mover na horizontal
         // FixedUpdate para physics-based movement
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
@@ -102,5 +111,23 @@ public class PlayerMove : MonoBehaviour
 
         // carregar scena main menu
         SceneManager.LoadScene("Main Menu");
+    }
+
+
+    public void Knockback(Vector2 enemyPosition)
+    {
+        isKnockback = true;
+
+        Vector2 direction = ((Vector2)transform.position - enemyPosition).normalized;
+
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(direction * knockbackForce, ForceMode2D.Impulse);
+
+        Invoke(nameof(StopKnockback), knockbackTime);
+    }
+
+    void StopKnockback()
+    {
+        isKnockback = false;
     }
 }

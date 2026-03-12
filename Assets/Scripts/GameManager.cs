@@ -66,7 +66,20 @@ public class GameManager : MonoBehaviour
                 inventoryManagerScript.UpdateCapsuleUI();
         }
     }
+    public void RemoveCapsule()
+    {
+        if (currentCapsulesCollected > 0)
+        {
+            currentCapsulesCollected--;
 
+            // Update inventory UI
+            if (inventoryManagerScript == null)
+                inventoryManagerScript = FindFirstObjectByType<InventoryManager>();
+
+            if (inventoryManagerScript != null)
+                inventoryManagerScript.UpdateCapsuleUI();
+        }
+    }
     public int GetCapsuleCount()
     {
         return currentCapsulesCollected;
