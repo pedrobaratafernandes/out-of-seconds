@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement; // transicao entre scenes
 
 //  https://www.youtube.com/watch?v=BXmUemP3a6o
 
-public class PlayerMove : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] float speed = 5f;       // velocidade horizontal
+    [SerializeField] float speed = 4f;       // velocidade horizontal
     [SerializeField] float jumpForce = 8f;   // força vertical para quando o jogador salta
 
     private Rigidbody2D rb;        // referencia para componente rigidbody 2d
@@ -20,39 +20,32 @@ public class PlayerMove : MonoBehaviour
     [Header("Input Actions")]
     [SerializeField] InputAction menuAction; // tecla ESC
 
-
-    [Header("Knockback")]
-    [SerializeField] float knockbackForce = 10f;
-    [SerializeField] float knockbackTime = 0.2f;
-    bool isKnockback;
-
-
-    void Awake()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         // mostrar scene main menu com a tecla ESC
         menuAction.Enable();
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         //esconder scene main menu com  a tecla ESC
         menuAction.Disable();
     }
 
     // componente PlayerInput mover
-    public void OnMove(InputAction.CallbackContext ctx)
+    private void OnMove(InputAction.CallbackContext ctx)
     {
         // WASD  ou gamepad)
         horizontal = ctx.ReadValue<Vector2>().x;
     }
 
     // componente PlayerInput saltar
-    public void OnJump(InputAction.CallbackContext ctx)
+    private void OnJump(InputAction.CallbackContext ctx)
     {
         // verifica se botao foi premido
         if (ctx.performed && IsGrounded())
@@ -66,7 +59,7 @@ public class PlayerMove : MonoBehaviour
     {
         return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
     }
-    void Start()
+    private void Start()
     {
         // coloca a o jogador na posicao correcta se o jogador carregou no main menu no continue
         if (GameManager.Instance != null && GameManager.Instance.shouldRestorePosition)
@@ -76,7 +69,7 @@ public class PlayerMove : MonoBehaviour
             GameManager.Instance.shouldRestorePosition = false;
         }
     }
-    void Update()
+    private void Update()
     {
         // verifica se tecla ESC (menuAction) foi premida
         if (menuAction.triggered)
@@ -85,17 +78,16 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+   private void FixedUpdate()
     {
 
-        if (isKnockback) return;
         // mover na horizontal
         // FixedUpdate para physics-based movement
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
     }
 
     // quando o jogador retorna a scene main menu
-    void ReturnToMenu()
+    private void ReturnToMenu()
     {
 
         if (GameManager.Instance != null)
@@ -114,20 +106,5 @@ public class PlayerMove : MonoBehaviour
     }
 
 
-    public void Knockback(Vector2 enemyPosition)
-    {
-        isKnockback = true;
 
-        Vector2 direction = ((Vector2)transform.position - enemyPosition).normalized;
-
-        rb.linearVelocity = Vector2.zero;
-        rb.AddForce(direction * knockbackForce, ForceMode2D.Impulse);
-
-        Invoke(nameof(StopKnockback), knockbackTime);
-    }
-
-    void StopKnockback()
-    {
-        isKnockback = false;
-    }
 }

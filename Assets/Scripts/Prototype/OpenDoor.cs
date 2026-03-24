@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-    public Animator doorAnimator;
-    public int levelKey = 1; // nível da porta
+    [SerializeField] private Animator doorAnimator;
+    private int levelKey = 1; // nível da porta
     public bool isOpen { get; private set; } = false;
 
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.CompareTag("Player") && levelKey == 2)
+        PlayerController player = collider.GetComponent<PlayerController>();
+
+        if (player != null && levelKey == 2)
         {
             SetDoorOpen();
             if (GameManager.Instance != null)
@@ -19,10 +21,11 @@ public class OpenDoor : MonoBehaviour
             }
         }
     }
-    void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collider)
     {
-        
-        if (collision.CompareTag("Player") && GameManager.Instance.coffee && levelKey == 1)
+        PlayerController player = collider.GetComponent<PlayerController>();
+
+        if (player != null && GameManager.Instance.coffee && levelKey == 1)
         {
             SetDoorOpen();
             if (GameManager.Instance != null)

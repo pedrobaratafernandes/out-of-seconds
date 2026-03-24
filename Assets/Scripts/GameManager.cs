@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public int currentLevel = 1;                 // nivel atual
     public bool gameStarted = false;             // jogo iniciado ?
     public string currentSceneName = "Prototype 1"; // nome do nivel atual
-    public Vector3 lastPlayerPosition; // Stores the player's position
+    public Vector2 lastPlayerPosition; // Stores the player's position
     public bool shouldRestorePosition = false; // flag para verificar se o posicao do jogador é guardado
     public bool coffee = false;
     private BuyCoffee coffeeScript;

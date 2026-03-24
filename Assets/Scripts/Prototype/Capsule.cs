@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Capsule : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player"))
+        PlayerController player = collider.GetComponent<PlayerController>();
+
+        if (player != null)
         {
             if (GameManager.Instance != null)
             {

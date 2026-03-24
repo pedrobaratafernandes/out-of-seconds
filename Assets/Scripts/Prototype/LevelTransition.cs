@@ -3,12 +3,12 @@ using UnityEngine.InputSystem;
 
 public class LevelTransition : MonoBehaviour
 {
-    public Animator timerAnimator;
+    [SerializeField] private Animator timerAnimator;
 
     private bool isPopupVisible = false; // estado visivel da UI do tempo
 
     // Player Input tecla Q
-    void OnViewUiTimer(InputValue value)
+    private void OnViewUiTimer(InputValue value)
     {
         // verifica se a tecla foi premida
         if (value.isPressed)
@@ -18,7 +18,7 @@ public class LevelTransition : MonoBehaviour
     }
 
     // mostrar estado visivel ou esconder a UI do tempo
-    void ToggleTransition()
+    private void ToggleTransition()
     {
         // trocar o estado de verdadeiro para falso e falso para verdadeiro
         isPopupVisible = !isPopupVisible;

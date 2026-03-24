@@ -4,12 +4,12 @@ using TMPro;
 
 public class TimeBar : MonoBehaviour
 {
-    public Image fillImage;         // imagem de referencia para colocar barra de tempo verde (sprite square)
-    public TextMeshProUGUI timerText; // referencia de texto TMP para tempo
+    [SerializeField] private Image fillImage;         // imagem de referencia para colocar barra de tempo verde (sprite square)
+    [SerializeField] private TextMeshProUGUI timerText; // referencia de texto TMP para tempo
 
     private float maxTime; // tempo inicial para calcular percentagem
 
-    void Update()
+    private void Update()
     {
         //se tempo restante for maior que 0 entao       
         if (GameManager.Instance != null && GameManager.Instance.timeRemaining > 0)
@@ -37,7 +37,7 @@ public class TimeBar : MonoBehaviour
         }
     }
     // fazer texto do tempo
-    void UpdateTimerText(float timeInSeconds)
+    private void UpdateTimerText(float timeInSeconds)
     {
         // documentacao para aprender https://gamedevbeginner.com/how-to-make-countdown-timer-in-unity-minutes-seconds/
         // calcular minutos e segundos

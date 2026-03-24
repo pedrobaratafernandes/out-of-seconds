@@ -5,12 +5,12 @@ using System.Collections.Generic;
 public class InventoryManager : MonoBehaviour
 {
 
-    public Image keyIconUI;
-    public List<Image> slots;
+    [SerializeField] private Image keyIconUI;
+    [SerializeField] private List<Image> slots;
     private int currentItemIndex = 0;
-    public Sprite fullCapsuleSprite;
-    public Sprite emptyCapsuleSprite;
-    void Start()
+    [SerializeField] private Sprite fullCapsuleSprite;
+    [SerializeField] private Sprite emptyCapsuleSprite;
+    private void Start()
     {
         // esconde chave ao iniciar nivel
         if (keyIconUI != null)
@@ -33,7 +33,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     // adicionar capsulas
-    public void CollectCapsule()
+    private void CollectCapsule()
     {
         if (currentItemIndex < slots.Count && slots[currentItemIndex] != null)
         {

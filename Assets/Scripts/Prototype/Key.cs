@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player"))
+        PlayerController player = collider.GetComponent<PlayerController>();
+
+        if (player != null)
         {
             InventoryManager inv = FindFirstObjectByType<InventoryManager>();
             if (inv != null)

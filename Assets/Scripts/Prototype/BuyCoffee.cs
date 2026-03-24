@@ -4,14 +4,14 @@ using UnityEngine.UI;
 using TMPro;
 public class BuyCoffee : MonoBehaviour
 {
-    public Slider timeBarSlider;
-    public TextMeshProUGUI timeTextDisplay;
+    [SerializeField] private Slider timeBarSlider;
+    [SerializeField] private TextMeshProUGUI timeTextDisplay;
     [SerializeField] private float coffeeCost = 5f;
 
     private bool isPlayerNearby = false;
-    
+
     // jogador esta na shop e carrega na tecla E
-    public void OnInteract(InputAction.CallbackContext context)
+    private void OnInteract(InputAction.CallbackContext context)
 
     {
         if (isPlayerNearby && !GameManager.Instance.coffee)
@@ -20,9 +20,9 @@ public class BuyCoffee : MonoBehaviour
         }
     }
 
-    void ExecutePurchase()
+    private void ExecutePurchase()
     {
-        
+
         if (GameManager.Instance != null)
         {
             GameManager.Instance.DeductTime(coffeeCost);
@@ -31,7 +31,7 @@ public class BuyCoffee : MonoBehaviour
         }
     }
 
-    
+
     // Atualiza HUB do tempo
     public void UpdateUI()
     {
@@ -49,18 +49,22 @@ public class BuyCoffee : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.CompareTag("Player"))
+        PlayerController player = collider.GetComponent<PlayerController>();
+
+        if (player != null)
         {
             isPlayerNearby = true;
         }
     }
 
 
-    void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collider)
     {
-        if (collision.CompareTag("Player"))
+        PlayerController player = collider.GetComponent<PlayerController>();
+
+        if (player != null)
         {
             isPlayerNearby = false;
         }

@@ -4,14 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class EnterDoor : MonoBehaviour
 {
-    public string sceneName; // qual e nome da scene que o jogador segue depois de tocar na porta aberta ?
+    [SerializeField] private string sceneName; // qual e nome da scene que o jogador segue depois de tocar na porta aberta ?
 
-    public OpenDoor door; // referencia para chave
+    [SerializeField] private OpenDoor door; // referencia para chave
 
     private bool playerNearDoor = false; // jogador esta perto da porta ?
 
     // new input system tecla E
-    public void OnInteract(InputAction.CallbackContext context)
+    private void OnInteract(InputAction.CallbackContext context)
     {
         //se jogador esta em cima da porta e porta aberta seguir para a scene com nome no inspector
         if (playerNearDoor && door.isOpen)
@@ -20,18 +20,22 @@ public class EnterDoor : MonoBehaviour
         }
     }
     // se jogador esta em cima da porta
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.CompareTag("Player"))
+        PlayerController player = collider.GetComponent<PlayerController>();
+
+        if (player != null)
         {
             playerNearDoor = true;
         }
     }
 
     //se jogador nao esta em cima da porta
-    void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collider)
     {
-        if (collision.CompareTag("Player"))
+        PlayerController player = collider.GetComponent<PlayerController>();
+
+        if (player != null)
         {
             playerNearDoor = false;
         }

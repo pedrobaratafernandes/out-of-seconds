@@ -3,7 +3,7 @@ using UnityEngine;
 // video referencia https://www.youtube.com/watch?v=RuvfOl8HhhM
 public class Friend : MonoBehaviour
 {
-    public enum StartDirection
+    private enum StartDirection
     {
         Left,
         Right
@@ -26,7 +26,7 @@ public class Friend : MonoBehaviour
     }
     private Transform currentPoint;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
@@ -40,7 +40,7 @@ public class Friend : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (!_canMove)
         {
@@ -67,14 +67,14 @@ public class Friend : MonoBehaviour
                 currentPoint = pointB;
         }
     }
-    void Flip()
+    private void Flip()
     {
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
     }
 
-    void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(pointA.transform.position, 0.5f);
         Gizmos.DrawWireSphere(pointB.transform.position, 0.5f);
