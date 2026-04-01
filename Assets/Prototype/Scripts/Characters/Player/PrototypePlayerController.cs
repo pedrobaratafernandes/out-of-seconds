@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement; // transicao entre scenes
 
 //  https://www.youtube.com/watch?v=BXmUemP3a6o
 
-public class PlayerController : MonoBehaviour
+public class PrototypePlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] float speed = 4f;       // velocidade horizontal
@@ -38,14 +38,14 @@ public class PlayerController : MonoBehaviour
     }
 
     // componente PlayerInput mover
-    private void OnMove(InputAction.CallbackContext ctx)
+    public void OnMove(InputAction.CallbackContext ctx)
     {
         // WASD  ou gamepad)
         horizontal = ctx.ReadValue<Vector2>().x;
     }
 
     // componente PlayerInput saltar
-    private void OnJump(InputAction.CallbackContext ctx)
+    public void OnJump(InputAction.CallbackContext ctx)
     {
         // verifica se botao foi premido
         if (ctx.performed && IsGrounded())
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-   private void FixedUpdate()
+    private void FixedUpdate()
     {
 
         // mover na horizontal

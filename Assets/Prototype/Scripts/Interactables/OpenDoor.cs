@@ -9,7 +9,7 @@ public class OpenDoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        PlayerController player = collider.GetComponent<PlayerController>();
+        PrototypePlayerController player = collider.GetComponent<PrototypePlayerController>();
 
         if (player != null && levelKey == 2)
         {
@@ -23,7 +23,7 @@ public class OpenDoor : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collider)
     {
-        PlayerController player = collider.GetComponent<PlayerController>();
+        PrototypePlayerController player = collider.GetComponent<PrototypePlayerController>();
 
         if (player != null && GameManager.Instance.coffee && levelKey == 1)
         {

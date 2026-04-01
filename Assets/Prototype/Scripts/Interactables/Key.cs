@@ -4,7 +4,7 @@ public class Key : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        PlayerController player = collider.GetComponent<PlayerController>();
+        PrototypePlayerController player = collider.GetComponent<PrototypePlayerController>();
 
         if (player != null)
         {

@@ -22,7 +22,7 @@ public class EnterDoor : MonoBehaviour
     // se jogador esta em cima da porta
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        PlayerController player = collider.GetComponent<PlayerController>();
+        PrototypePlayerController player = collider.GetComponent<PrototypePlayerController>();
 
         if (player != null)
         {
@@ -33,7 +33,7 @@ public class EnterDoor : MonoBehaviour
     //se jogador nao esta em cima da porta
     private void OnTriggerExit2D(Collider2D collider)
     {
-        PlayerController player = collider.GetComponent<PlayerController>();
+        PrototypePlayerController player = collider.GetComponent<PrototypePlayerController>();
 
         if (player != null)
         {

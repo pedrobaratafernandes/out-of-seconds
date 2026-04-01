@@ -75,7 +75,7 @@ public class MovePlatform : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        PrototypePlayerController player = collision.gameObject.GetComponent<PrototypePlayerController>();
 
         if (player != null)
         {
@@ -86,7 +86,7 @@ public class MovePlatform : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        PrototypePlayerController player = collision.gameObject.GetComponent<PrototypePlayerController>();
 
         if (player != null)
         {
