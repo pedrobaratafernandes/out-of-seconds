@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // video referencia https://www.youtube.com/watch?v=RuvfOl8HhhM
-public class Enemy : MonoBehaviour
+public class PrototypeEnemy : MonoBehaviour
 {
     private enum StartDirection
     {
