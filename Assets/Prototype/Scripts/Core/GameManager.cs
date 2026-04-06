@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,12 +9,17 @@ public class GameManager : MonoBehaviour
 
     private int totalCapsuleItems = 10;
     private int currentCapsulesCollected = 0;
-    public float timeRemaining = 60f;           // tempo restante
-    public float levelMaxTime = 60f;            // tempo maximo
-    public int currentLevel = 1;     
-    public bool gameStarted = false;             // jogo iniciado ?
+    public int currentLevel = 1;
+
+    [Header("Level Settings")]
+    public float timeRemaining;         // tempo restante
+    public float levelMaxTime;            // tempo maximo
+
+    [Header("Global Progression")]
+    public float globalTimeRemaining = 300f; // tempo de jogo 5 minutos
+    public bool gameStarted = false;           // jogo iniciado ?
     public string currentSceneName = "Prototype 1"; // nome do nivel atual
-    public Vector2 lastPlayerPosition; // Stores the player's position
+    public Vector2 lastPlayerPosition; // guarda a posição do jogador
     public bool shouldRestorePosition = false; // flag para verificar se o posicao do jogador é guardado
     public bool coffee = false;
     private BuyCoffee coffeeScript;
@@ -26,6 +32,22 @@ public class GameManager : MonoBehaviour
         // Procura na scene pelos scripts
         coffeeScript = FindFirstObjectByType<BuyCoffee>();
         inventoryManagerScript = FindFirstObjectByType<InventoryManager>();
+    }
+
+    private void Update()
+    {
+        if (gameStarted)
+        {
+            if (globalTimeRemaining > 0)
+            {
+                globalTimeRemaining -= Time.deltaTime;
+            }
+            else
+            {
+                CheckGameEnd();
+            }
+
+        }
     }
     private void Awake()
     {
@@ -42,8 +64,40 @@ public class GameManager : MonoBehaviour
         // nao permitir que o GameManager seja eleminado da scene
         DontDestroyOnLoad(gameObject);
     }
+    public void SetupLevel(float secondsForThisLevel)
+    {
+        levelMaxTime = secondsForThisLevel;
+        timeRemaining = secondsForThisLevel;
+        gameStarted = true;
+    }
 
-    // progresso do jogador e estado de posicao
+    // decidir qual final aparece
+    public void CheckGameEnd()
+    {
+        gameStarted = false;
+
+        // barra ou popup timer chega ao 0 jogador morre
+        if (globalTimeRemaining <= 0 || timeRemaining <= 0)
+        {
+            // jogador morre
+            SceneManager.LoadScene("End A");
+        }
+        else if (globalTimeRemaining >= 30f)
+        {
+            // salvou a mãe
+            SceneManager.LoadScene("End C");
+
+        }
+        else
+        {
+            // mãe morre
+            SceneManager.LoadScene("End B");
+        }
+    }
+
+
+
+    // definir nivel e estado de posicao do jogador
     public void SetLevel(int level, string sceneName)
     {
         currentLevel = level;        // em que nivel esta ?
@@ -95,14 +149,10 @@ public class GameManager : MonoBehaviour
             timeRemaining = 0;
         }
 
-        if (coffeeScript == null)
-        {
-            coffeeScript = FindFirstObjectByType<BuyCoffee>();
-        }
+        coffeeScript = FindFirstObjectByType<BuyCoffee>();
 
-        if (coffeeScript != null)
-        {
-            coffeeScript.UpdateUI(); // atualiza a HUB de tempo
-        }
+        // atualiza a HUB de tempo
+        coffeeScript.UpdateUI();
+
     }
 }

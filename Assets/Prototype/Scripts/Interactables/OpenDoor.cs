@@ -13,7 +13,7 @@ public class OpenDoor : MonoBehaviour
         if (isPlayerNearby && !isOpen)
         {
             // Verifica se a tecla configurada no Input System (ou W/Up) foi premida
-            if (Keyboard.current.eKey.wasPressedThisFrame || Keyboard.current.ctrlKey.wasPressedThisFrame)
+            if (Keyboard.current.eKey.wasPressedThisFrame || Keyboard.current.ctrlKey.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame || Gamepad.current.buttonWest.wasPressedThisFrame)
             {
                 if (GameManager.Instance.currentLevel == 1)
                 {

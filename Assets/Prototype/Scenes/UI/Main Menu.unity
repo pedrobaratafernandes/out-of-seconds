@@ -810,9 +810,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe19b13a4beb6ee47a6cf2e4b197aa41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  currentLevel: 1
   timeRemaining: 20
   levelMaxTime: 60
-  currentLevel: 1
+  globalTimeRemaining: 300
   gameStarted: 0
   currentSceneName: Prototype 1
   lastPlayerPosition: {x: 0, y: 0}
@@ -1231,6 +1232,46 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Navigate
       m_Flags: 8
+    - m_Name: 2D Vector
+      m_Id: 6b2e5d9d-e2a0-4379-ba0d-371006d9235a
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Navigate
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 0d6d097e-344c-4182-9e7d-3e73ecf4fd07
+      m_Path: <Gamepad>/dpad/up
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Navigate
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 37e2acf1-14c9-46c7-91d1-c869452dbd7d
+      m_Path: <Gamepad>/dpad/down
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Navigate
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 454c15be-66e5-491b-b1ac-d9e940195f9a
+      m_Path: 
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Navigate
+      m_Flags: 8
+    - m_Name: right
+      m_Id: d5914515-3b52-4012-b6d5-12dbb016cfcc
+      m_Path: 
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Navigate
+      m_Flags: 8
     m_Flags: 0
   submitAction:
     m_Name: Submit
@@ -1241,8 +1282,16 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 1b8f3f6c-ab8e-42b3-98f0-e362b145ede4
-      m_Path: <Keyboard>/enter
+      m_Id: bca6418b-fd76-47a5-b5c2-e12d190e78d4
+      m_Path: <Gamepad>/buttonSouth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Submit
+      m_Flags: 0
+    - m_Name: 
+      m_Id: ce3234fb-530b-477a-8997-a69c04a48c59
+      m_Path: <Gamepad>/start
       m_Interactions: 
       m_Processors: 
       m_Groups: 

@@ -10,17 +10,25 @@ public class EnterDoor : MonoBehaviour
 
     private bool playerNearDoor = false; // jogador esta na porta ?
 
-
+    [SerializeField] private bool isFinalDoor = false;
     private void Update()
     {
         // player esta perto da porta e aberta E ele carregou W ou UP
         if (playerNearDoor && door != null && door.isOpen)
         {
-            // Verifica se a tecla configurada no Input System (ou W/Up) foi premida
-            if (Keyboard.current.wKey.wasPressedThisFrame || Keyboard.current.upArrowKey.wasPressedThisFrame)
-            {
-                SceneManager.LoadScene(sceneName);
-            }
+            // Verifica se a tecla configurada no Input System W/UP foi premida
+            if (Keyboard.current.wKey.wasPressedThisFrame || Keyboard.current.upArrowKey.wasPressedThisFrame ||
+            Gamepad.current.dpad.up.wasPressedThisFrame || Gamepad.current.leftStick.up.wasPressedThisFrame)
+                if (isFinalDoor)
+                {
+                    // Se for a última porta, o GameManager decide o final
+                    GameManager.Instance.CheckGameEnd();
+                }
+                else
+                {
+                    // Se for uma porta comum entre níveis
+                    SceneManager.LoadScene(sceneName);
+                }
         }
     }
 
