@@ -410,4 +410,12 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Menu
       m_Flags: 0
+    - m_Name: 
+      m_Id: ca8f0520-be0d-4f30-afc2-504d43218655
+      m_Path: <Gamepad>/start
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Menu
+      m_Flags: 0
     m_Flags: 0
