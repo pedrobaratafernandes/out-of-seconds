@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
             // jogador morre
             SceneManager.LoadScene("End A");
         }
-        else if (globalTimeRemaining >= 30f)
+        else if (globalTimeRemaining >= 30f && currentCapsulesCollected == totalCapsuleItems)
         {
             // salvou a mãe
             SceneManager.LoadScene("End C");
