@@ -87,9 +87,13 @@ public class Enemy : MonoBehaviour
 
         // inverter direção
         if (currentPoint == pointB)
+        {
             currentPoint = pointA;
+        }
         else
+        {
             currentPoint = pointB;
+        }
     }
 
     private void OnDrawGizmos()
