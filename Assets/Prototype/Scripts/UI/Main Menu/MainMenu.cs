@@ -25,7 +25,8 @@ public class MainMenu : MonoBehaviour
     private string continueOriginalText; // string continue
     private string startOriginalText;    // string start
     private string quitOriginalText;     // string quit
-
+    private float menuEnableTime; // tempo de ativacao do menu para controlar input delay
+    private float inputDelay = 0.2f; // tempo de espera para evitar input imediato ao abrir o menu
     private void OnEnable()
     {
         // ativar input actions
@@ -42,6 +43,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        menuEnableTime = Time.time;
         // texto de opcoes sem estar sublinhados
         startOriginalText = startButton.text;
         quitOriginalText = quitButton.text;
@@ -68,6 +70,8 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
+
+        if (Time.time < menuEnableTime + inputDelay) return;
         // tempo real do relogio da maquina horas:minutos:segundos
         if (timeDisplay != null)
             timeDisplay.text = DateTime.Now.ToString("HH:mm:ss");
