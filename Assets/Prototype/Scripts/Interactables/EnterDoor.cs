@@ -8,17 +8,22 @@ public class EnterDoor : MonoBehaviour
 
     [SerializeField] private OpenDoor door; // referencia para chave
 
-    private bool playerNearDoor = false; // jogador esta perto da porta ?
+    private bool playerNearDoor = false; // jogador esta na porta ?
 
-    // new input system tecla E
-    private void OnInteract(InputAction.CallbackContext context)
+
+    private void Update()
     {
-        //se jogador esta em cima da porta e porta aberta seguir para a scene com nome no inspector
-        if (playerNearDoor && door.isOpen)
+        // player esta perto da porta e aberta E ele carregou W ou UP
+        if (playerNearDoor && door != null && door.isOpen)
         {
-            SceneManager.LoadScene(sceneName);
+            // Verifica se a tecla configurada no Input System (ou W/Up) foi premida
+            if (Keyboard.current.wKey.wasPressedThisFrame || Keyboard.current.upArrowKey.wasPressedThisFrame)
+            {
+                SceneManager.LoadScene(sceneName);
+            }
         }
     }
+
     // se jogador esta em cima da porta
     private void OnTriggerEnter2D(Collider2D collider)
     {

@@ -19,7 +19,7 @@ public class PrototypePlayerController : MonoBehaviour
 
     [Header("Input Actions")]
     [SerializeField] InputAction menuAction; // tecla ESC
-
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

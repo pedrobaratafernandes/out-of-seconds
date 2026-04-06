@@ -6,33 +6,38 @@ public class BuyCoffee : MonoBehaviour
 {
     [SerializeField] private Slider timeBarSlider;
     [SerializeField] private TextMeshProUGUI timeTextDisplay;
+    [SerializeField] private TextMeshProUGUI infoText;
     [SerializeField] private float coffeeCost = 5f;
-
+    [SerializeField] private OpenDoor doorToOpen;
     private bool isPlayerNearby = false;
 
-    // jogador esta na shop e carrega na tecla E
-    private void OnInteract(InputAction.CallbackContext context)
-
+    private void Start()
     {
-        if (isPlayerNearby && !GameManager.Instance.coffee)
+        infoText.gameObject.SetActive(false);
+    }
+
+    // jogador esta na shop e carrega na tecla E ou CTRL
+    private void Update()
+    {
+
+        if (isPlayerNearby && Keyboard.current.eKey.wasPressedThisFrame || Keyboard.current.ctrlKey.wasPressedThisFrame)
         {
-            ExecutePurchase();
+            // Só compra se ainda não tiver café e se houver tempo suficiente
+            if (!GameManager.Instance.coffee && GameManager.Instance.timeRemaining >= coffeeCost)
+            {
+                GameManager.Instance.DeductTime(coffeeCost);
+                GameManager.Instance.coffee = true;
+                GameManager.Instance.Level1DoorIsOpen = true;
+
+                doorToOpen.SetDoorOpen();
+
+                UpdateUI();
+
+            }
         }
     }
 
-    private void ExecutePurchase()
-    {
-
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.DeductTime(coffeeCost);
-            GameManager.Instance.coffee = true;
-            GameManager.Instance.Level1DoorIsOpen = true;
-        }
-    }
-
-
-    // Atualiza HUB do tempo
+    // Atualiza HUB do tempo e esconde a mensagem de compra do café
     public void UpdateUI()
     {
 
@@ -47,12 +52,13 @@ public class BuyCoffee : MonoBehaviour
             int seconds = Mathf.FloorToInt(GameManager.Instance.timeRemaining % 60);
             timeTextDisplay.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
+        infoText.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         PrototypePlayerController player = collider.GetComponent<PrototypePlayerController>();
-
+        infoText.gameObject.SetActive(true);
         if (player != null)
         {
             isPlayerNearby = true;
@@ -63,7 +69,7 @@ public class BuyCoffee : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collider)
     {
         PrototypePlayerController player = collider.GetComponent<PrototypePlayerController>();
-
+        infoText.gameObject.SetActive(false);
         if (player != null)
         {
             isPlayerNearby = false;

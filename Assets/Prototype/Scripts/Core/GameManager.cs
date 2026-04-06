@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private int currentCapsulesCollected = 0;
     public float timeRemaining = 60f;           // tempo restante
     public float levelMaxTime = 60f;            // tempo maximo
-    public int currentLevel = 1;                 // nivel atual
+    public int currentLevel = 1;     
     public bool gameStarted = false;             // jogo iniciado ?
     public string currentSceneName = "Prototype 1"; // nome do nivel atual
     public Vector2 lastPlayerPosition; // Stores the player's position

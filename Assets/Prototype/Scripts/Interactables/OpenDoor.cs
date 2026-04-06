@@ -1,44 +1,58 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class OpenDoor : MonoBehaviour
 {
     [SerializeField] private Animator doorAnimator;
-    private int levelKey = 1; // nível da porta
-    public bool isOpen { get; private set; } = false;
-
-
+    public bool isOpen = false;
+    private bool isPlayerNearby = false;
+    
+    private void Update()
+    {
+        // player esta perto da porta e aberta E ele carregou W ou UP
+        if (isPlayerNearby && !isOpen)
+        {
+            // Verifica se a tecla configurada no Input System (ou W/Up) foi premida
+            if (Keyboard.current.eKey.wasPressedThisFrame || Keyboard.current.ctrlKey.wasPressedThisFrame)
+            {
+                if (GameManager.Instance.currentLevel == 1)
+                {
+                    GameManager.Instance.Level1DoorIsOpen = true;
+                }
+                else if (GameManager.Instance.currentLevel == 2)
+                {
+                    GameManager.Instance.Level2DoorIsOpen = true;
+                }
+                SetDoorOpen();
+            }
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collider)
     {
         PrototypePlayerController player = collider.GetComponent<PrototypePlayerController>();
 
-        if (player != null && levelKey == 2)
+        if (player != null)
         {
-            SetDoorOpen();
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.Level2DoorIsOpen = true;
-
-            }
+            isPlayerNearby = true;
         }
     }
-    private void OnTriggerStay2D(Collider2D collider)
+
+    private void OnTriggerExit2D(Collider2D collider)
     {
         PrototypePlayerController player = collider.GetComponent<PrototypePlayerController>();
 
-        if (player != null && GameManager.Instance.coffee && levelKey == 1)
+        if (player != null)
         {
-            SetDoorOpen();
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.Level1DoorIsOpen = true;
-
-            }
+            isPlayerNearby = false;
         }
     }
-    private void SetDoorOpen()
+
+    public void SetDoorOpen()
     {
         isOpen = true;
         if (doorAnimator != null)
+        {
             doorAnimator.SetBool("Open", true);
+        }
     }
 }
