@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class TakeTime : MonoBehaviour
+public class PrototypeEnemyTakeTime : MonoBehaviour
 {
     private Animator animator;
-    private Friend friendScript;
+    private PrototypeEnemy enemyScript;
 
     private void Start()
     {
         animator = GetComponentInParent<Animator>();
-        friendScript = GetComponentInParent<Friend>();
+        enemyScript = GetComponentInParent<PrototypeEnemy>();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -18,9 +18,18 @@ public class TakeTime : MonoBehaviour
         if (player != null)
         {
 
-            if (friendScript != null) friendScript.CanMove = false;
+            if (enemyScript != null)
+            {
+                enemyScript.CanMove = false;
+            }
 
-            if (animator != null) animator.SetBool("TakeTime", true);
+            if (animator != null)
+            {
+                animator.SetBool("TakeTime", true);
+            }
+
+
+            GameManager.Instance.DeductTime(5f);
 
             Rigidbody2D playerRb = collider.GetComponent<Rigidbody2D>();
             if (playerRb != null)
@@ -38,7 +47,7 @@ public class TakeTime : MonoBehaviour
         if (player != null)
         {
 
-            if (friendScript != null) friendScript.CanMove = true;
+            if (enemyScript != null) enemyScript.CanMove = true;
 
             if (animator != null) animator.SetBool("TakeTime", false);
 

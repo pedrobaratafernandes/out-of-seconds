@@ -1,8 +1,9 @@
 using UnityEngine;
 
-// video referencia https://www.youtube.com/watch?v=RuvfOl8HhhM
-public class Friend : MonoBehaviour
+// video referencia de movimento https://www.youtube.com/watch?v=RuvfOl8HhhM
+public class PrototypeFriend : MonoBehaviour
 {
+    private Rigidbody2D rb;
     private enum StartDirection
     {
         Left,
@@ -11,14 +12,12 @@ public class Friend : MonoBehaviour
 
     [SerializeField] Transform pointA;
     [SerializeField] Transform pointB;
-    private Rigidbody2D rb;
-
 
     [SerializeField] float speed = 2f;
     [SerializeField] StartDirection startDirection;
     [SerializeField] bool _canMove = true;
 
-    
+
     public bool CanMove
     {
         get { return _canMove; }
@@ -59,19 +58,17 @@ public class Friend : MonoBehaviour
 
         if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f)
         {
-            Flip();
+
 
             if (currentPoint == pointB)
+            {
                 currentPoint = pointA;
+            }
             else
+            {
                 currentPoint = pointB;
+            }
         }
-    }
-    private void Flip()
-    {
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
     }
 
     private void OnDrawGizmos()

@@ -143,12 +143,20 @@ public class GameManager : MonoBehaviour
     // reduz tempo e atualiza HUB de tempo
     public void DeductTime(float amount)
     {
+        //Remove do tempo do nível (Barra Verde)
         timeRemaining -= amount;
         if (timeRemaining < 0)
         {
             timeRemaining = 0;
         }
-
+        
+        // Remove do tempo global
+        globalTimeRemaining -= amount;
+        if (globalTimeRemaining < 0)
+        {
+            globalTimeRemaining = 0;
+        }
+        
         coffeeScript = FindFirstObjectByType<BuyCoffee>();
 
         // atualiza a HUB de tempo

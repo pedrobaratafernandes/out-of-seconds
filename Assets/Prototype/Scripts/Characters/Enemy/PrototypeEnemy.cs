@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// video referencia https://www.youtube.com/watch?v=RuvfOl8HhhM
+// video referencia de movimento https://www.youtube.com/watch?v=RuvfOl8HhhM
 public class PrototypeEnemy : MonoBehaviour
 {
     private enum StartDirection
@@ -12,8 +12,18 @@ public class PrototypeEnemy : MonoBehaviour
     [SerializeField] Transform pointA;
     [SerializeField] Transform pointB;
     private Rigidbody2D rb;
+
+
     [SerializeField] float speed = 2f;
     [SerializeField] StartDirection startDirection;
+    [SerializeField] bool _canMove = true;
+
+
+    public bool CanMove
+    {
+        get { return _canMove; }
+        set { _canMove = value; }
+    }
     private Transform currentPoint;
 
     private void Start()
@@ -32,6 +42,12 @@ public class PrototypeEnemy : MonoBehaviour
 
     private void Update()
     {
+        if (!_canMove)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         if (currentPoint == pointB)
         {
             rb.linearVelocity = new Vector2(speed, 0);
@@ -43,19 +59,15 @@ public class PrototypeEnemy : MonoBehaviour
 
         if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f)
         {
-            Flip();
-
             if (currentPoint == pointB)
+            {
                 currentPoint = pointA;
+            }
             else
+            {
                 currentPoint = pointB;
+            }
         }
-    }
-    private void Flip()
-    {
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
     }
 
     private void OnDrawGizmos()
@@ -66,12 +78,5 @@ public class PrototypeEnemy : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        PrototypePlayerController player = collider.GetComponent<PrototypePlayerController>();
-
-        if (player != null)
-            GameManager.Instance.RemoveCapsule();
-    }
 
 }
