@@ -10,6 +10,12 @@ Nome do jogo *Out of Seconds*, o tempo e a vida são a mesma moeda. Cada segundo
 - Tema: sobrevivência num mundo onde o tempo é um recurso escasso.
 - Inspiração: introduz o ambiente e a lógica do mundo apresentado no início do filme.
 
+## Links Úteis
+
+* [Trello](https://trello.com/b/nQKcDxmZ/intimethevideogame)
+* [GDD - Versão 1](GDD//GDD%20IN%20TIME%202011%20v1.docx)
+
+
 ## Objetivo do Jogo
 
 - Atravessar os níveis antes de o relógio chegar a zero.
