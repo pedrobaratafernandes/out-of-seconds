@@ -156,8 +156,11 @@ public class GameManager : MonoBehaviour
         {
             globalTimeRemaining = 0;
         }
-        
-        coffeeScript = FindFirstObjectByType<BuyCoffee>();
+        if (coffeeScript == null)
+        {
+            coffeeScript = FindFirstObjectByType<BuyCoffee>();
+        }
+if (coffeeScript != null)
 
         // atualiza a HUB de tempo
         coffeeScript.UpdateUI();
