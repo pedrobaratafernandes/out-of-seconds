@@ -804,13 +804,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6654001184438953644, guid: a771059c58741b1459d053f559b4c797, type: 3}
-<<<<<<< HEAD
       propertyPath: isOpen
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6654001184438953644, guid: a771059c58741b1459d053f559b4c797, type: 3}
-=======
->>>>>>> 95aac59ba568ef06d1b518b8954eb056eee34d45
       propertyPath: levelKey
       value: 3
       objectReference: {fileID: 0}
