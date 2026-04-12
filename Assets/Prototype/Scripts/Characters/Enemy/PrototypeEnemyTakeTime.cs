@@ -28,14 +28,13 @@ public class PrototypeEnemyTakeTime : MonoBehaviour
                 animator.SetBool("TakeTime", true);
             }
 
-
+            // reduz o tempo do jogador em 5 segundos
             GameManager.Instance.DeductTime(5f);
 
             Rigidbody2D playerRb = collider.GetComponent<Rigidbody2D>();
             if (playerRb != null)
             {
                 playerRb.linearVelocity = Vector2.zero;
-                playerRb.bodyType = RigidbodyType2D.Kinematic;
             }
         }
     }

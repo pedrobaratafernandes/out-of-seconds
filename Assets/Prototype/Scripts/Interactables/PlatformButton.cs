@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlatformButton : MonoBehaviour
 {
     [SerializeField] private MovePlatform platformToActivate;
     private bool isPlayerNearSwitch = false;
+    [SerializeField] private TextMeshProUGUI textTutorial;
 
     private void Update()
     {
@@ -24,6 +26,10 @@ public class PlatformButton : MonoBehaviour
         if (player != null)
         {
             isPlayerNearSwitch = true;
+            if (textTutorial != null)
+            {
+                textTutorial.gameObject.SetActive(true);
+            }
         }
     }
 
@@ -33,6 +39,10 @@ public class PlatformButton : MonoBehaviour
         if (player != null)
         {
             isPlayerNearSwitch = false;
+            if (textTutorial != null)
+            {
+                textTutorial.gameObject.SetActive(false);
+            }
         }
     }
 }

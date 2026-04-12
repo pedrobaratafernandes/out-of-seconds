@@ -20,6 +20,8 @@ public class PrototypeFriendTakeTime : MonoBehaviour
 
             friendScript.CanMove = false;
             animator.SetBool("TakeTime", true);
+
+            // reduz o tempo do jogador em 1 segundo
             GameManager.Instance.DeductTime(1f);
 
         }
