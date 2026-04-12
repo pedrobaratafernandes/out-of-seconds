@@ -47,23 +47,40 @@ public class MovePlatform : MonoBehaviour
         }
     }
 
-    private void Update()
+    //isto anula o salto do jogadaor se a plataforma estiver a subir
+    // private void Update()
+    // {
+    //     // Se a plataforma NÃO não se move
+    //     if (!_canMove)
+    //     {
+    //         rb.linearVelocity = Vector2.zero;
+    //         return;
+    //     }
+
+    //     transform.position = Vector3.MoveTowards(transform.position, nextPosition, speed * Time.deltaTime);
+    //     if (transform.position == nextPosition)
+    //     {
+    //         nextPosition = (nextPosition == pointA.position) ? pointB.position : pointA.position;
+    //     }
+
+    // }
+
+    private void FixedUpdate()
     {
         // Se a plataforma NÃO não se move
-        if (!_canMove)
-        {
-            rb.linearVelocity = Vector2.zero;
-            return;
-        }
+        if (!_canMove) return;
 
-        transform.position = Vector3.MoveTowards(transform.position, nextPosition, speed * Time.deltaTime);
-        if (transform.position == nextPosition)
+        // Calcula a nova posição
+        Vector3 currentPos = Vector3.MoveTowards(rb.position, nextPosition, speed * Time.fixedDeltaTime);
+
+        // Move usando o Rigidbody para manter a consistência física
+        rb.MovePosition(currentPos);
+
+        if (Vector3.Distance(transform.position, nextPosition) < 0.1f)
         {
             nextPosition = (nextPosition == pointA.position) ? pointB.position : pointA.position;
         }
-
     }
-
     // Desenha linhas visuais para game designer, caminho do movimento
     private void OnDrawGizmos()
     {
