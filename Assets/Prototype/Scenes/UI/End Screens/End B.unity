@@ -299,7 +299,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You were too late. Your mother has died.
+  m_text: 'You were too late...
+
+    Your mother has died.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420d0772eafdbbf47bc224df0c1e23dc, type: 2}
   m_sharedMaterial: {fileID: 8273947116774920208, guid: 420d0772eafdbbf47bc224df0c1e23dc, type: 2}
@@ -834,7 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
