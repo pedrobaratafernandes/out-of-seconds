@@ -15,14 +15,6 @@ public class OpenDoor : MonoBehaviour
             // Verifica se a tecla configurada no Input System (ou W/Up) foi premida
             if (Keyboard.current.eKey.wasPressedThisFrame || Keyboard.current.ctrlKey.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame || Gamepad.current.buttonWest.wasPressedThisFrame)
             {
-                if (GameManager.Instance.currentLevel == 1)
-                {
-                    GameManager.Instance.Level1DoorIsOpen = true;
-                }
-                else if (GameManager.Instance.currentLevel == 2)
-                {
-                    GameManager.Instance.Level2DoorIsOpen = true;
-                }
                 SetDoorOpen();
             }
         }

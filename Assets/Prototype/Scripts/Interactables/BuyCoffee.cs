@@ -27,12 +27,10 @@ public class BuyCoffee : MonoBehaviour
             {
                 GameManager.Instance.DeductTime(coffeeCost);
                 GameManager.Instance.coffee = true;
-                GameManager.Instance.Level1DoorIsOpen = true;
-
+               
                 doorToOpen.SetDoorOpen();
 
                 UpdateUI();
-
             }
         }
     }

@@ -6,7 +6,7 @@ public class HowLongLevelTakes : MonoBehaviour
 
     void Start()
     {
-        if (GameManager.Instance != null)
+        if (GameManager.Instance != null && !GameManager.Instance.gameStarted)
         {
             GameManager.Instance.SetupLevel(secondsForLevel);
         }

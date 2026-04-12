@@ -24,8 +24,7 @@ public class GameManager : MonoBehaviour
     public bool coffee = false;
     private BuyCoffee coffeeScript;
     private InventoryManager inventoryManagerScript;
-    public bool Level1DoorIsOpen = false;
-    public bool Level2DoorIsOpen = false;
+
 
     void Start()
     {
