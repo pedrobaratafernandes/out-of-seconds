@@ -19,7 +19,7 @@ public class OpenDoor : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerStay2D(Collider2D collider)
     {
         PrototypePlayerController player = collider.GetComponent<PrototypePlayerController>();
 

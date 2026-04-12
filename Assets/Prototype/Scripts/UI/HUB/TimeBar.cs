@@ -7,7 +7,15 @@ public class TimeBar : MonoBehaviour
     [SerializeField] private Image fillImage;         // imagem de referencia para colocar barra de tempo verde (sprite square)
     [SerializeField] private TextMeshProUGUI timerText; // referencia de texto TMP para tempo
 
-
+    private void Start()
+    {
+        // Garante que a barra começa na posição correta assim que a cena carrega
+        if (GameManager.Instance != null && GameManager.Instance.levelMaxTime > 0)
+        {
+            fillImage.fillAmount = GameManager.Instance.timeRemaining / GameManager.Instance.levelMaxTime;
+            UpdateTimerText();
+        }
+    }
     private void Update()
     {
         //se tempo restante for maior que 0 entao       

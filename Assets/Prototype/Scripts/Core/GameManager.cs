@@ -24,8 +24,8 @@ public class GameManager : MonoBehaviour
     public bool coffee = false;
     private BuyCoffee coffeeScript;
     private InventoryManager inventoryManagerScript;
-
-
+    public bool isContinuing = false;
+    public float returnTime;
     void Start()
     {
         // Procura na scene pelos scripts
@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
         {
             timeRemaining = 0;
         }
-        
+
         // Remove do tempo global
         globalTimeRemaining -= amount;
         if (globalTimeRemaining < 0)
@@ -159,10 +159,10 @@ public class GameManager : MonoBehaviour
         {
             coffeeScript = FindFirstObjectByType<BuyCoffee>();
         }
-if (coffeeScript != null)
+        if (coffeeScript != null)
 
-        // atualiza a HUB de tempo
-        coffeeScript.UpdateUI();
+            // atualiza a HUB de tempo
+            coffeeScript.UpdateUI();
 
     }
 }

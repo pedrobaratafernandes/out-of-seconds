@@ -194,6 +194,10 @@ public class MainMenu : MonoBehaviour
 
     private void OnContinueClicked()
     {
+        GameManager.Instance.returnTime = GameManager.Instance.timeRemaining;
+
+        // 2. Ativar a flag de continuar
+        GameManager.Instance.isContinuing = true;
         // carrega nome da scene atual
         SceneManager.LoadScene(GameManager.Instance.currentSceneName);
     }

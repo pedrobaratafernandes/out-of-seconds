@@ -6,9 +6,24 @@ public class HowLongLevelTakes : MonoBehaviour
 
     void Start()
     {
-        if (GameManager.Instance != null && !GameManager.Instance.gameStarted)
+        if (GameManager.Instance != null)
         {
-            GameManager.Instance.SetupLevel(secondsForLevel);
+            if (!GameManager.Instance.isContinuing)
+            {
+                GameManager.Instance.SetupLevel(secondsForLevel);
+            }
+            else
+            {
+                
+                GameManager.Instance.levelMaxTime = secondsForLevel;
+
+                // Aplica o tempo guardado ao tempo restante real
+                GameManager.Instance.timeRemaining = GameManager.Instance.returnTime;
+
+                
+                GameManager.Instance.isContinuing = false;
+                GameManager.Instance.gameStarted = true;
+            }
         }
     }
 }
