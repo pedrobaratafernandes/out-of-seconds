@@ -19,7 +19,7 @@ public class TimeBar : MonoBehaviour
     private void Update()
     {
         //se tempo restante for maior que 0 entao       
-        if (GameManager.Instance.timeRemaining > 0)
+        if (GameManager.Instance.timeRemaining >= 0)
         {
             //diminuir tempo
             GameManager.Instance.timeRemaining -= Time.deltaTime;
