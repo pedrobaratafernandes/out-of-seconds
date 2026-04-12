@@ -58,7 +58,7 @@ public class BuyCoffee : MonoBehaviour
         infoText.gameObject.SetActive(false);
     }
 
-    private void OnTriggerStay2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         PrototypePlayerController player = collider.GetComponent<PrototypePlayerController>();
         infoText.gameObject.SetActive(true);

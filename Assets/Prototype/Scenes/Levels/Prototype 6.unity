@@ -119,63 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &21350559
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4421608571286406289, guid: 9bf63116686618d4a8a3ab1a026e8781, type: 3}
-      propertyPath: m_Name
-      value: Capsule (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831072615731453422, guid: 9bf63116686618d4a8a3ab1a026e8781, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831072615731453422, guid: 9bf63116686618d4a8a3ab1a026e8781, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831072615731453422, guid: 9bf63116686618d4a8a3ab1a026e8781, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831072615731453422, guid: 9bf63116686618d4a8a3ab1a026e8781, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831072615731453422, guid: 9bf63116686618d4a8a3ab1a026e8781, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831072615731453422, guid: 9bf63116686618d4a8a3ab1a026e8781, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831072615731453422, guid: 9bf63116686618d4a8a3ab1a026e8781, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831072615731453422, guid: 9bf63116686618d4a8a3ab1a026e8781, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831072615731453422, guid: 9bf63116686618d4a8a3ab1a026e8781, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831072615731453422, guid: 9bf63116686618d4a8a3ab1a026e8781, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9bf63116686618d4a8a3ab1a026e8781, type: 3}
 --- !u!1 &47220823
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,6 +937,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4426144564991154792, guid: a771059c58741b1459d053f559b4c797, type: 3}
+      propertyPath: m_Size.x
+      value: 4.06756
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426144564991154792, guid: a771059c58741b1459d053f559b4c797, type: 3}
+      propertyPath: m_Size.y
+      value: 3.0976148
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426144564991154792, guid: a771059c58741b1459d053f559b4c797, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426144564991154792, guid: a771059c58741b1459d053f559b4c797, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6654001184438953644, guid: a771059c58741b1459d053f559b4c797, type: 3}
       propertyPath: levelKey
       value: 3
@@ -2385,6 +2344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformButton
   platformToActivate: {fileID: 1022732972}
+  textTutorial: {fileID: 0}
 --- !u!61 &1143730591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2537,6 +2497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformButton
   platformToActivate: {fileID: 1245037304}
+  textTutorial: {fileID: 0}
 --- !u!212 &1240244088
 SpriteRenderer:
   serializedVersion: 2
@@ -3316,6 +3277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformButton
   platformToActivate: {fileID: 2127871628}
+  textTutorial: {fileID: 0}
 --- !u!61 &1969307002
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4162,7 +4124,6 @@ SceneRoots:
   - {fileID: 6339935206388145841}
   - {fileID: 608892636}
   - {fileID: 2145708841}
-  - {fileID: 21350559}
   - {fileID: 414435707}
   - {fileID: 910689424}
   - {fileID: 173582050}

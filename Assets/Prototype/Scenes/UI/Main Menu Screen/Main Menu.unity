@@ -813,7 +813,7 @@ MonoBehaviour:
   currentLevel: 1
   timeRemaining: 20
   levelMaxTime: 60
-  globalTimeRemaining: 300
+  globalTimeRemaining: 350
   gameStarted: 0
   currentSceneName: Prototype 1
   lastPlayerPosition: {x: 0, y: 0}

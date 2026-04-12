@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     private int totalCapsuleItems = 10;
-    private int currentCapsulesCollected = 0;
+    public int currentCapsulesCollected = 0;
     public int currentLevel = 1;
 
     [Header("Level Settings")]

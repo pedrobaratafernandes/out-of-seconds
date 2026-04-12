@@ -953,6 +953,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4426144564991154792, guid: a771059c58741b1459d053f559b4c797, type: 3}
+      propertyPath: m_Size.x
+      value: 4.067561
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426144564991154792, guid: a771059c58741b1459d053f559b4c797, type: 3}
+      propertyPath: m_Size.y
+      value: 3.0082579
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426144564991154792, guid: a771059c58741b1459d053f559b4c797, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.02792418
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426144564991154792, guid: a771059c58741b1459d053f559b4c797, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.005584717
+      objectReference: {fileID: 0}
     - target: {fileID: 6654001184438953644, guid: a771059c58741b1459d053f559b4c797, type: 3}
       propertyPath: levelKey
       value: 3
@@ -2505,6 +2521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformButton
   platformToActivate: {fileID: 1022732972}
+  textTutorial: {fileID: 0}
 --- !u!61 &1143730591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2742,6 +2759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformButton
   platformToActivate: {fileID: 1245037304}
+  textTutorial: {fileID: 0}
 --- !u!212 &1240244088
 SpriteRenderer:
   serializedVersion: 2
@@ -3452,6 +3470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformButton
   platformToActivate: {fileID: 2127871628}
+  textTutorial: {fileID: 0}
 --- !u!61 &1969307002
 BoxCollider2D:
   m_ObjectHideFlags: 0
