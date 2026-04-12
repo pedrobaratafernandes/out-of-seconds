@@ -10,7 +10,7 @@ public class BuyCoffee : MonoBehaviour
     [SerializeField] private float coffeeCost = 5f;
     [SerializeField] private OpenDoor doorToOpen;
     private bool isPlayerNearby = false;
-
+    [SerializeField] private InventoryManager inventoryManager;
     private void Start()
     {
         infoText.gameObject.SetActive(false);
@@ -20,16 +20,21 @@ public class BuyCoffee : MonoBehaviour
     private void Update()
     {
 
-        if (isPlayerNearby && Keyboard.current.eKey.wasPressedThisFrame || Keyboard.current.ctrlKey.wasPressedThisFrame)
+        if (isPlayerNearby && (Keyboard.current.eKey.wasPressedThisFrame || Keyboard.current.ctrlKey.wasPressedThisFrame))
         {
             // Só compra se ainda não tiver café e se houver tempo suficiente
             if (!GameManager.Instance.coffee && GameManager.Instance.timeRemaining >= coffeeCost)
             {
                 GameManager.Instance.DeductTime(coffeeCost);
                 GameManager.Instance.coffee = true;
-               
+
                 doorToOpen.SetDoorOpen();
 
+                //mostrar icon key no HUB
+                if (inventoryManager != null)
+                {
+                    inventoryManager.ActiveKeyUI();
+                }
                 UpdateUI();
             }
         }

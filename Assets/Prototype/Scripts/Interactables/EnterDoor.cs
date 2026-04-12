@@ -5,12 +5,10 @@ using UnityEngine.SceneManagement;
 public class EnterDoor : MonoBehaviour
 {
     [SerializeField] private string sceneName; // qual e nome da scene que o jogador segue depois de tocar na porta aberta ?
-
     [SerializeField] private OpenDoor door; // referencia para chave
-
     private bool playerNearDoor = false; // jogador esta na porta ?
+    [SerializeField] private bool isFinalDoor = false; // porta do ultimo nivel
 
-    [SerializeField] private bool isFinalDoor = false;
     private void Update()
     {
         // player esta perto da porta e aberta E ele carregou W ou UP

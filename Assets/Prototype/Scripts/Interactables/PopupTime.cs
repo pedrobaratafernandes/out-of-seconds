@@ -13,13 +13,21 @@ public class PopupTime : MonoBehaviour
 
     public void Update()
     {
-        if (Keyboard.current.qKey.wasPressedThisFrame || Keyboard.current.altKey.wasPressedThisFrame || Gamepad.current.buttonNorth.wasPressedThisFrame)
-        {
-            isPopupVisible = !isPopupVisible;
+        bool gamepadPressed = Gamepad.current != null && Gamepad.current.buttonNorth.wasPressedThisFrame;
 
-            if (timerAnimator != null)
+        // 2. Check keyboard keys
+        bool keyboardPressed = Keyboard.current.qKey.wasPressedThisFrame || Keyboard.current.altKey.wasPressedThisFrame;
+
+        if (gamepadPressed || keyboardPressed)
+        {
+            if (Keyboard.current.qKey.wasPressedThisFrame || Keyboard.current.altKey.wasPressedThisFrame || Gamepad.current.buttonNorth.wasPressedThisFrame)
             {
-                timerAnimator.SetBool("Show", isPopupVisible);
+                isPopupVisible = !isPopupVisible;
+
+                if (timerAnimator != null)
+                {
+                    timerAnimator.SetBool("Show", isPopupVisible);
+                }
             }
         }
     }

@@ -815,6 +815,10 @@ PrefabInstance:
       propertyPath: doorAnimator
       value: 
       objectReference: {fileID: 6339935206388145842}
+    - target: {fileID: 6654001184438953644, guid: a771059c58741b1459d053f559b4c797, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1976963499}
     - target: {fileID: 6968046546632612600, guid: a771059c58741b1459d053f559b4c797, type: 3}
       propertyPath: m_Name
       value: Key
@@ -2930,6 +2934,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7056129954410845233, guid: 5acb171828314a64cb9518dba4300122, type: 3}
   m_PrefabInstance: {fileID: 1976963497}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1976963499 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3115630118670691809, guid: 5acb171828314a64cb9518dba4300122, type: 3}
+  m_PrefabInstance: {fileID: 1976963497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e77fe20b76ce5e439378740a87fd789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
 --- !u!1 &2119470628
 GameObject:
   m_ObjectHideFlags: 0

@@ -819,8 +819,8 @@ MonoBehaviour:
   lastPlayerPosition: {x: 0, y: 0}
   shouldRestorePosition: 0
   coffee: 0
-  Level1DoorIsOpen: 0
-  Level2DoorIsOpen: 0
+  isContinuing: 0
+  returnTime: 0
 --- !u!4 &597038294
 Transform:
   m_ObjectHideFlags: 0
