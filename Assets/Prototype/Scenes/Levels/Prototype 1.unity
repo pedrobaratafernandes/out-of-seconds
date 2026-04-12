@@ -795,7 +795,7 @@ GameObject:
   - component: {fileID: 489042417}
   - component: {fileID: 489042416}
   m_Layer: 0
-  m_Name: Time
+  m_Name: RemaningTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

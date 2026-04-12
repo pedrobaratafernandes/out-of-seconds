@@ -1068,7 +1068,7 @@ GameObject:
   - component: {fileID: 695648065}
   - component: {fileID: 695648064}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: RemaningTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1086,7 +1086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271e543d3edb7a04890c9095addf5495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelInitializer
-  secondsForLevel: 135
+  secondsForLevel: 100
 --- !u!4 &695648065
 Transform:
   m_ObjectHideFlags: 0
