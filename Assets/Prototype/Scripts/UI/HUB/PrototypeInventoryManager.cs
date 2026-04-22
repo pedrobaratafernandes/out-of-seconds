@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class InventoryManager : MonoBehaviour
+public class PrototypeInventoryManager : MonoBehaviour
 {
 
     [SerializeField] private Image keyIconUI;

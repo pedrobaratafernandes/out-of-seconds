@@ -4,13 +4,13 @@ public class Capsule : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        PrototypePlayerController player = collider.GetComponent<PrototypePlayerController>();
+        PlayerController player = collider.GetComponent<PlayerController>();
 
         if (player != null)
         {
-            if (PrototypeGameManager.Instance != null)
+            if (GameManager.Instance != null)
             {
-                PrototypeGameManager.Instance.AddCapsule();
+                GameManager.Instance.AddCapsule();
             }
 
             Destroy(gameObject);

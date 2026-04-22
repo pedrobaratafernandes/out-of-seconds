@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     //documentacao para aprender sobre singleton no unity https://www.game-developers.org/singletons-in-unity-101-a-comprehensive-tutorial
-    // acesso ao PrototypeGameManager.Instance
+    // acesso ao GameManager.Instance
     public static GameManager Instance { get; private set; }
 
     private int totalCapsuleItems = 10;
@@ -97,38 +97,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
-
-    // definir nivel e estado de posicao do jogador
-
+    // adicionar capsulas
     public void AddCapsule()
     {
         if (currentCapsulesCollected < totalCapsuleItems)
         {
-            currentCapsulesCollected++;
+            currentCapsulesCollected++; // incrementa 1
 
-            // Avisa o inventário para atualizar o visual
+            // https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Object.FindFirstObjectByType.html
+            // procura na scene por script
             if (inventoryManagerScript == null)
                 inventoryManagerScript = FindFirstObjectByType<InventoryManager>();
 
+            // atualiza HUB
             if (inventoryManagerScript != null)
                 inventoryManagerScript.UpdateCapsuleUI();
         }
     }
-    public void RemoveCapsule()
-    {
-        if (currentCapsulesCollected > 0)
-        {
-            currentCapsulesCollected--;
 
-            // Update inventory UI
-            if (inventoryManagerScript == null)
-                inventoryManagerScript = FindFirstObjectByType<InventoryManager>();
-
-            if (inventoryManagerScript != null)
-                inventoryManagerScript.UpdateCapsuleUI();
-        }
-    }
+    
+    // obter quantidade de capsulas coletadas para usar em outros scripts
     public int GetCapsuleCount()
     {
         return currentCapsulesCollected;
@@ -153,6 +141,7 @@ public class GameManager : MonoBehaviour
         }
         if (coffeeScript == null)
         {
+            // procura na scene por script
             coffeeScript = FindFirstObjectByType<BuyCoffee>();
         }
         if (coffeeScript != null)
