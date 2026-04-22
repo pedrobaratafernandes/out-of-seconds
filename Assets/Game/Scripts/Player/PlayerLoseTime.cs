@@ -22,14 +22,15 @@ public class PlayerLoseTime : MonoBehaviour
 
         isPaused = true;
 
-        // vira a sprite para olhar para o inimigo
         if (enemy.position.x > transform.position.x)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            // Inimigo na direita -> Jogador olha para a DIREITA
+            transform.rotation = Quaternion.identity; 
         }
         else
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            // Inimigo na esquerda -> Jogador olha para a ESQUERDA
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
         // bloqueia movimento

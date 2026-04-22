@@ -62,11 +62,11 @@ public class PrototypePlayerController : MonoBehaviour
     private void Start()
     {
         // coloca a o jogador na posicao correcta se o jogador carregou no main menu no continue
-        if (GameManager.Instance != null && GameManager.Instance.shouldRestorePosition)
+        if (PrototypeGameManager.Instance != null && PrototypeGameManager.Instance.shouldRestorePosition)
         {
-            transform.position = GameManager.Instance.lastPlayerPosition;
+            transform.position = PrototypeGameManager.Instance.lastPlayerPosition;
             // Reinicia a flag para que não continue a teletransportar jogador cada vez que o script é executado.
-            GameManager.Instance.shouldRestorePosition = false;
+            PrototypeGameManager.Instance.shouldRestorePosition = false;
         }
     }
     private void Update()
@@ -90,15 +90,15 @@ public class PrototypePlayerController : MonoBehaviour
     private void ReturnToMenu()
     {
 
-        if (GameManager.Instance != null)
+        if (PrototypeGameManager.Instance != null)
         {
-            GameManager.Instance.gameStarted = true;
+            PrototypeGameManager.Instance.gameStarted = true;
             // atualiza o nome da scene para que o jogador retorne ao nivel indicado
-            GameManager.Instance.currentSceneName = SceneManager.GetActiveScene().name;
+            PrototypeGameManager.Instance.currentSceneName = SceneManager.GetActiveScene().name;
 
             // atualiza a posicao do jogador
-            GameManager.Instance.lastPlayerPosition = transform.position;
-            GameManager.Instance.shouldRestorePosition = true;
+            PrototypeGameManager.Instance.lastPlayerPosition = transform.position;
+            PrototypeGameManager.Instance.shouldRestorePosition = true;
         }
 
         // carregar scena main menu

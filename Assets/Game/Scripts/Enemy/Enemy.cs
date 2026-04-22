@@ -41,15 +41,15 @@ public class Enemy : MonoBehaviour
         if (currentPoint == pointB)
         {
             rb.linearVelocity = new Vector2(speed, 0);
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.rotation = Quaternion.identity;
         }
         else
         {
             rb.linearVelocity = new Vector2(-speed, 0);
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
-        if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f)
+        if (Vector2.Distance(transform.position, currentPoint.position) < 2.0f)
         {
             if (currentPoint == pointB)
                 currentPoint = pointA;
@@ -65,14 +65,16 @@ public class Enemy : MonoBehaviour
         if (playerLoseTime != null)
         {
             isPaused = true;
-            // virar inimigo para o jogador
-            if (collider.transform.position.x > transform.position.x)
+            // Se o jogador está à DIREITA do inimigo
+            if (collider.transform.position.x < transform.position.x)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                // Inimigo olha para a DIREITA
+                transform.rotation = Quaternion.Euler(0, 180, 0);
             }
             else
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                // Inimigo olha para a ESQUERDA
+                transform.rotation = Quaternion.identity;
             }
             anim.SetTrigger("DrawTime");
             // animação do jogador e passa a posição do inimigo para o jogador virar para ele
@@ -85,15 +87,7 @@ public class Enemy : MonoBehaviour
     {
         isPaused = false;
 
-        // inverter direção
-        if (currentPoint == pointB)
-        {
-            currentPoint = pointA;
-        }
-        else
-        {
-            currentPoint = pointB;
-        }
+       
     }
 
     private void OnDrawGizmos()

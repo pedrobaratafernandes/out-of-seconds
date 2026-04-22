@@ -6,36 +6,42 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Prototype/Scenes/UI/Main Menu Screen/Main Menu.unity
+    path: Assets/Game/Scenes/Main Menu.unity
     guid: 75f696351edf3cc4692f88b3b5adfeb5
+  - enabled: 1
+    path: Assets/Game/Scenes/Test Player.unity
+    guid: dd235fccf168eab44942fe53c280d630
+  - enabled: 1
+    path: Assets/Prototype/Scenes/UI/Main Menu Screen/Main Menu.unity
+    guid: 920239fde6f579f49b20fa2f4ffb0ebc
   - enabled: 1
     path: Assets/Prototype/Scenes/Levels/Prototype 1.unity
     guid: ca0a51e56950dbc4bb035545ceecfc98
-  - enabled: 1
+  - enabled: 0
     path: Assets/Prototype/Scenes/Levels/Prototype 2.unity
     guid: 47d84db5c0edab340988e73f70bb8bad
-  - enabled: 1
+  - enabled: 0
     path: Assets/Prototype/Scenes/Levels/Prototype 3.unity
     guid: 8fbb11f1d960328418669c8ea05de43f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Prototype/Scenes/Levels/Prototype 4.unity
     guid: 9d7a7639305a8254f9b38b073260bb2d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Prototype/Scenes/Levels/Prototype 5.unity
     guid: 774723fa858950849bd7abf443710a8a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Prototype/Scenes/Levels/Prototype 6.unity
     guid: 0a150201f135e704990445113ab99845
-  - enabled: 1
+  - enabled: 0
     path: Assets/Prototype/Scenes/Tests/Test movement.unity
     guid: 323ecbf59162e6b4190bd99007b66ea0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Prototype/Scenes/UI/End Screens/End A.unity
     guid: 9b756dac004809f48ab4a389b3dfea9c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Prototype/Scenes/UI/End Screens/End B.unity
     guid: 8419f2e2e12895c4b8a8c36fa3052f2b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Prototype/Scenes/UI/End Screens/End C.unity
     guid: 7f02b7e657e801f448fbdccfba49507c
   m_configObjects:

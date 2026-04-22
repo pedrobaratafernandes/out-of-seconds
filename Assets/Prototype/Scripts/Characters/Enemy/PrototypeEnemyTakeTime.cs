@@ -29,7 +29,7 @@ public class PrototypeEnemyTakeTime : MonoBehaviour
             }
 
             // reduz o tempo do jogador em 5 segundos
-            GameManager.Instance.DeductTime(5f);
+            PrototypeGameManager.Instance.DeductTime(5f);
 
             Rigidbody2D playerRb = collider.GetComponent<Rigidbody2D>();
             if (playerRb != null)

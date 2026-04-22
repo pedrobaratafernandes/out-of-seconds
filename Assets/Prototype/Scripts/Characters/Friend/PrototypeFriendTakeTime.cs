@@ -22,7 +22,7 @@ public class PrototypeFriendTakeTime : MonoBehaviour
             animator.SetBool("TakeTime", true);
 
             // reduz o tempo do jogador em 1 segundo
-            GameManager.Instance.DeductTime(1f);
+            PrototypeGameManager.Instance.DeductTime(1f);
 
         }
     }

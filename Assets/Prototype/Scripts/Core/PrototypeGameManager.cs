@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class PrototypeGameManager : MonoBehaviour
 {
     //documentacao para aprender sobre singleton no unity https://www.game-developers.org/singletons-in-unity-101-a-comprehensive-tutorial
-    // acesso ao GameManager.Instance
-    public static GameManager Instance { get; private set; }
+    // acesso ao PrototypeGameManager.Instance
+    public static PrototypeGameManager Instance { get; private set; }
 
     private int totalCapsuleItems = 10;
     public int currentCapsulesCollected = 0;
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     }
     private void Awake()
     {
-        // Singleton Pattern: apenas um GameManager pode existir no jogo
+        // Singleton Pattern: apenas um PrototypeGameManager pode existir no jogo
         if (Instance != null && Instance != this)
         {
             // destruir object se ja existir apenas pode existir um
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
 
-        // nao permitir que o GameManager seja eleminado da scene
+        // nao permitir que o PrototypeGameManager seja eleminado da scene
         DontDestroyOnLoad(gameObject);
     }
     public void SetupLevel(float secondsForThisLevel)

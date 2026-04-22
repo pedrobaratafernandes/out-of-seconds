@@ -10,22 +10,22 @@ public class TimeBar : MonoBehaviour
     private void Start()
     {
         // Garante que a barra começa na posição correta assim que a cena carrega
-        if (GameManager.Instance != null && GameManager.Instance.levelMaxTime > 0)
+        if (PrototypeGameManager.Instance != null && PrototypeGameManager.Instance.levelMaxTime > 0)
         {
-            fillImage.fillAmount = GameManager.Instance.timeRemaining / GameManager.Instance.levelMaxTime;
+            fillImage.fillAmount = PrototypeGameManager.Instance.timeRemaining / PrototypeGameManager.Instance.levelMaxTime;
             UpdateTimerText();
         }
     }
     private void Update()
     {
         //se tempo restante for maior que 0 entao       
-        if (GameManager.Instance.timeRemaining >= 0)
+        if (PrototypeGameManager.Instance.timeRemaining >= 0)
         {
             //diminuir tempo
-            GameManager.Instance.timeRemaining -= Time.deltaTime;
+            PrototypeGameManager.Instance.timeRemaining -= Time.deltaTime;
 
             // calcula a proporção de tempo restante e gera a barra de 0 a 1
-            fillImage.fillAmount = GameManager.Instance.timeRemaining / GameManager.Instance.levelMaxTime;
+            fillImage.fillAmount = PrototypeGameManager.Instance.timeRemaining / PrototypeGameManager.Instance.levelMaxTime;
 
             //metodo para atualizar tempo
             UpdateTimerText();
@@ -34,13 +34,13 @@ public class TimeBar : MonoBehaviour
         else
         {
             // variavel singleton tempo restante para 0
-            GameManager.Instance.timeRemaining = 0;
+            PrototypeGameManager.Instance.timeRemaining = 0;
             //barra chega ao 0
             fillImage.fillAmount = 0;
             // colocar o texto do relogio a zeros
             timerText.text = "0000:00:0:00:00:00";
             // variavel singleton mostra ecra de game over
-            GameManager.Instance.CheckGameEnd();
+            PrototypeGameManager.Instance.CheckGameEnd();
         }
     }
     // fazer texto do tempo
@@ -48,7 +48,7 @@ public class TimeBar : MonoBehaviour
     {
         // documentacao para aprender https://gamedevbeginner.com/how-to-make-countdown-timer-in-unity-minutes-seconds/
         // calcular minutos e segundos
-        float timeToDisplay = GameManager.Instance.globalTimeRemaining;
+        float timeToDisplay = PrototypeGameManager.Instance.globalTimeRemaining;
 
         if (timeToDisplay < 0)
         {

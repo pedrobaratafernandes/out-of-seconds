@@ -45,7 +45,7 @@ public class InventoryManager : MonoBehaviour
     //atualiza HUB de capsulas
     public void UpdateCapsuleUI()
     {
-        int collected = GameManager.Instance.GetCapsuleCount();
+        int collected = PrototypeGameManager.Instance.GetCapsuleCount();
 
         for (int i = 0; i < slots.Count; i++)
         {

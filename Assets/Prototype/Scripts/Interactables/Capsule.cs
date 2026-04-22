@@ -8,9 +8,9 @@ public class Capsule : MonoBehaviour
 
         if (player != null)
         {
-            if (GameManager.Instance != null)
+            if (PrototypeGameManager.Instance != null)
             {
-                GameManager.Instance.AddCapsule();
+                PrototypeGameManager.Instance.AddCapsule();
             }
 
             Destroy(gameObject);

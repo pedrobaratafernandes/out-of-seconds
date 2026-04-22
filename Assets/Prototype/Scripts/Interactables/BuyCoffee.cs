@@ -23,10 +23,10 @@ public class BuyCoffee : MonoBehaviour
         if (isPlayerNearby && (Keyboard.current.eKey.wasPressedThisFrame || Keyboard.current.ctrlKey.wasPressedThisFrame))
         {
             // Só compra se ainda não tiver café e se houver tempo suficiente
-            if (!GameManager.Instance.coffee && GameManager.Instance.timeRemaining >= coffeeCost)
+            if (!PrototypeGameManager.Instance.coffee && PrototypeGameManager.Instance.timeRemaining >= coffeeCost)
             {
-                GameManager.Instance.DeductTime(coffeeCost);
-                GameManager.Instance.coffee = true;
+                PrototypeGameManager.Instance.DeductTime(coffeeCost);
+                PrototypeGameManager.Instance.coffee = true;
 
                 doorToOpen.SetDoorOpen();
 
@@ -46,13 +46,13 @@ public class BuyCoffee : MonoBehaviour
 
         if (timeBarSlider != null)
         {
-            timeBarSlider.value = GameManager.Instance.timeRemaining;
+            timeBarSlider.value = PrototypeGameManager.Instance.timeRemaining;
         }
 
         if (timeTextDisplay != null)
         {
-            int minutes = Mathf.FloorToInt(GameManager.Instance.timeRemaining / 60);
-            int seconds = Mathf.FloorToInt(GameManager.Instance.timeRemaining % 60);
+            int minutes = Mathf.FloorToInt(PrototypeGameManager.Instance.timeRemaining / 60);
+            int seconds = Mathf.FloorToInt(PrototypeGameManager.Instance.timeRemaining % 60);
             timeTextDisplay.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
         infoText.gameObject.SetActive(false);

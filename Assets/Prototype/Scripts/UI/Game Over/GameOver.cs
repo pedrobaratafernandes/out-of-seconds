@@ -5,7 +5,7 @@ public class GameOver : MonoBehaviour
 {
     public void GoToMainMenu()
     {
-        GameManager.Instance.currentCapsulesCollected = 0;
+        PrototypeGameManager.Instance.currentCapsulesCollected = 0;
         SceneManager.LoadScene("Main Menu");
 
     }

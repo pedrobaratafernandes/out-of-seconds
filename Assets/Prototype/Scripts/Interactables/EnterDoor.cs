@@ -14,14 +14,14 @@ public class EnterDoor : MonoBehaviour
         // player esta perto da porta e aberta E ele carregou W ou UP
         if (playerNearDoor && door != null && door.isOpen)
         {
-            
+
             // Verifica se a tecla configurada no Input System W/UP foi premida
             if (Keyboard.current.wKey.wasPressedThisFrame || Keyboard.current.upArrowKey.wasPressedThisFrame ||
             Gamepad.current.dpad.up.wasPressedThisFrame || Gamepad.current.leftStick.up.wasPressedThisFrame)
                 if (isFinalDoor)
                 {
-                    // Se for a última porta, o GameManager decide o final
-                    GameManager.Instance.CheckGameEnd();
+                    // Se for a última porta, o PrototypeGameManager decide o final
+                    PrototypeGameManager.Instance.CheckGameEnd();
                 }
                 else
                 {
@@ -30,7 +30,7 @@ public class EnterDoor : MonoBehaviour
                 }
         }
     }
-    
+
     // se jogador esta em cima da porta
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -40,7 +40,7 @@ public class EnterDoor : MonoBehaviour
         {
             playerNearDoor = true;
         }
-       
+
     }
 
     //se jogador nao esta em cima da porta
