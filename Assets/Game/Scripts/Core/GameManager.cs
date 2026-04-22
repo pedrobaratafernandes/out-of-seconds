@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [Header("Global Progression")]
     public float globalTimeRemaining = 300f; // tempo de jogo 5 minutos
     public bool gameStarted = false;           // jogo iniciado ?
-    public string currentSceneName = "Prototype 1"; // nome do nivel atual
+    public string currentSceneName; // nome do nivel atual
     public Vector2 lastPlayerPosition; // guarda a posição do jogador
     public bool shouldRestorePosition = false; // flag para verificar se o posicao do jogador é guardado
     public bool coffee = false;
@@ -63,9 +63,12 @@ public class GameManager : MonoBehaviour
         // nao permitir que o PrototypeGameManager seja eleminado da scene
         DontDestroyOnLoad(gameObject);
     }
-    public void SetupLevel(float secondsForThisLevel)
+    public void SetupLevel(int level, string sceneName, float secondsForThisLevel)
     {
-        levelMaxTime = secondsForThisLevel;
+        currentLevel = level;        // em que nivel esta ?
+        currentSceneName = sceneName; // qual e o nome da scene ?
+        shouldRestorePosition = false; // reset da posicao do jogador quando o nivel começa
+
         timeRemaining = secondsForThisLevel;
         gameStarted = true;
     }
@@ -97,13 +100,6 @@ public class GameManager : MonoBehaviour
 
 
     // definir nivel e estado de posicao do jogador
-    public void SetLevel(int level, string sceneName)
-    {
-        currentLevel = level;        // em que nivel esta ?
-        currentSceneName = sceneName; // qual e o nome da scene ?
-        shouldRestorePosition = false; // reset da posicao do jogador quando o nivel começa
-
-    }
 
     public void AddCapsule()
     {

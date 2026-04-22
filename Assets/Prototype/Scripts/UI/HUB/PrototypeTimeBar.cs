@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class TimeBar : MonoBehaviour
+public class PrototypeTimeBar : MonoBehaviour
 {
     [SerializeField] private Image fillImage;         // imagem de referencia para colocar barra de tempo verde (sprite square)
     [SerializeField] private TextMeshProUGUI timerText; // referencia de texto TMP para tempo

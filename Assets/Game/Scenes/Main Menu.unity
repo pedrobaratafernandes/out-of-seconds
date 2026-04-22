@@ -827,8 +827,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   currentCapsulesCollected: 0
   currentLevel: 1
-  timeRemaining: 0
-  levelMaxTime: 0
+  timeRemaining: 60
+  levelMaxTime: 60
   globalTimeRemaining: 300
   gameStarted: 0
   currentSceneName: 
@@ -1121,7 +1121,7 @@ GameObject:
   - component: {fileID: 1253930938}
   - component: {fileID: 1253930939}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Script
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

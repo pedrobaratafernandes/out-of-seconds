@@ -1,28 +1,26 @@
+using System;
 using UnityEngine;
 
 public class HowLongLevelTakes : MonoBehaviour
 {
     [SerializeField] private float secondsForLevel = 30f;
+    [SerializeField] private int level; // nome do nivel para mostrar no console
+    [SerializeField] private string sceneName;
 
     void Start()
     {
-        if (PrototypeGameManager.Instance != null)
+        if (GameManager.Instance != null)
         {
-            if (!PrototypeGameManager.Instance.isContinuing)
+            if (!GameManager.Instance.isContinuing)
             {
-                PrototypeGameManager.Instance.SetupLevel(secondsForLevel);
+                GameManager.Instance.SetupLevel(level, sceneName, secondsForLevel);
             }
             else
             {
-
-                PrototypeGameManager.Instance.levelMaxTime = secondsForLevel;
-
                 // Aplica o tempo guardado ao tempo restante real
-                PrototypeGameManager.Instance.timeRemaining = PrototypeGameManager.Instance.returnTime;
-
-
-                PrototypeGameManager.Instance.isContinuing = false;
-                PrototypeGameManager.Instance.gameStarted = true;
+                GameManager.Instance.timeRemaining = GameManager.Instance.returnTime;
+                GameManager.Instance.isContinuing = false;
+                GameManager.Instance.gameStarted = true;
             }
         }
     }
